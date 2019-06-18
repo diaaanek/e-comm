@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ecomm/static/css/main.d8f68d1b.chunk.css",
-    "main.js": "/ecomm/static/js/main.193ed80f.chunk.js",
-    "main.js.map": "/ecomm/static/js/main.193ed80f.chunk.js.map",
-    "runtime~main.js": "/ecomm/static/js/runtime~main.ce9976df.js",
-    "runtime~main.js.map": "/ecomm/static/js/runtime~main.ce9976df.js.map",
-    "static/js/2.785327fa.chunk.js": "/ecomm/static/js/2.785327fa.chunk.js",
-    "static/js/2.785327fa.chunk.js.map": "/ecomm/static/js/2.785327fa.chunk.js.map",
-    "index.html": "/ecomm/index.html",
-    "precache-manifest.483e3eda0ac2f339f0438820a5d6417f.js": "/ecomm/precache-manifest.483e3eda0ac2f339f0438820a5d6417f.js",
-    "service-worker.js": "/ecomm/service-worker.js",
-    "static/css/main.d8f68d1b.chunk.css.map": "/ecomm/static/css/main.d8f68d1b.chunk.css.map"
+    "main.css": "/e-comm/static/css/main.d8f68d1b.chunk.css",
+    "main.js": "/e-comm/static/js/main.193ed80f.chunk.js",
+    "main.js.map": "/e-comm/static/js/main.193ed80f.chunk.js.map",
+    "runtime~main.js": "/e-comm/static/js/runtime~main.7715f55b.js",
+    "runtime~main.js.map": "/e-comm/static/js/runtime~main.7715f55b.js.map",
+    "static/js/2.785327fa.chunk.js": "/e-comm/static/js/2.785327fa.chunk.js",
+    "static/js/2.785327fa.chunk.js.map": "/e-comm/static/js/2.785327fa.chunk.js.map",
+    "index.html": "/e-comm/index.html",
+    "precache-manifest.a7e3caca46a9d1642f5ec993bb37384d.js": "/e-comm/precache-manifest.a7e3caca46a9d1642f5ec993bb37384d.js",
+    "service-worker.js": "/e-comm/service-worker.js",
+    "static/css/main.d8f68d1b.chunk.css.map": "/e-comm/static/css/main.d8f68d1b.chunk.css.map"
   }
 }
