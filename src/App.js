@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Products from "./components/Products";
-import Filter from "./components/Filter";
 import Basket from "./components/Basket";
 
 import "./App.scss";
@@ -85,6 +84,7 @@ class App extends Component {
     });
   };
 
+  // TODO: Sort Functionality
   listProducts = () => {
     this.setState(state => {
       if (state.sort !== "") {
@@ -109,14 +109,6 @@ class App extends Component {
       }
       return { filteredProducts: state.products };
     });
-  };
-  handleSortChange = e => {
-    this.setState({ sort: e.target.value });
-    this.listProducts();
-  };
-  handleSizeChange = e => {
-    this.setState({ size: e.target.value });
-    this.listProducts();
   };
 
   render() {

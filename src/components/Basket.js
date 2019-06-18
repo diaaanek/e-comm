@@ -56,14 +56,3 @@ export default class Basket extends Component {
     );
   }
 }
-
-//
-// <div class="showfilter">
-//   <h3 class="filterheader">Your Shopping Cart</h3>
-//   <ul class="browser__list">
-//     <li>Recent Release</li>
-//     <li class="active">Netflix Originnal</li>
-//     <li>Action</li>
-//     <li>Horro</li>
-//   </ul>
-// </div>
