@@ -1,8 +1,8 @@
 $themes: (
   light: (
-    backgroundColor: #f9fafa,
-    fontFamily: "Lato",
-    textColor: #408bbd,
+    backgroundColor: white,
+    fontFamily: "Avenir",
+    textColor: black,
     headerColor: #3f3f49,
     buttonTextColor: #408bbd,
     button1: #e62d35,
@@ -14,13 +14,14 @@ $themes: (
     buttonBorder: 2px solid #fff,
     logo: "http://cdn.shopify.com/s/files/1/1801/2825/t/18/assets/logo.png?10",
     headerImg:
-      "https://res.cloudinary.com/dxrvvjvpf/image/upload/v1560800190/undraw_online_shopping_ga73.svg",
+      "https://d2qwzu24wcp0pu.cloudfront.net/purecollection/landing/SS18/sweater%20buying%20guide/9421503f.24342_Pure_Sweater_guide-v3_aimee_02.png/1176x440.fit.24342_Pure_Sweater_guide-v3_aimee_02.png",
     direction: left
   ),
   dark: (
-    backgroundColor: #252d2d,
+    // backgroundColor: #252d2d,
+      backgroundColor: #000000,
     fontFamily: "Roboto",
-    textColor: #ddd,
+    textColor: black,
     headerColor: white,
     buttonTextColor: #aaa,
     button1: #3a5b92,
@@ -33,7 +34,7 @@ $themes: (
     logo:
       "https://res.cloudinary.com/dxrvvjvpf/image/upload/v1560548285/CRYPT.png",
     headerImg:
-      "https://res.cloudinary.com/dxrvvjvpf/image/upload/v1560800395/undraw_online_shopping_ga73_1.svg",
+      "https://images.ctfassets.net/bdvz0u6oqffk/2p4LaYSsfhSiUxLJTonSNg/5d8c45359311c98d580d960ae1d7a8c0/search-cta-hero-D.jpg?fm=webp",
     direction: right
   )
 );
@@ -169,6 +170,17 @@ img {
 
 button {
   cursor: pointer;
+  height: 50px;
+  padding: 15px 35px 16px;
+  /* border-radius: 2px; */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #f7323f;
+  border: solid 2px #464e54;
+  color: #464e54;
+  background: none;
 }
 
 .add-btn {
@@ -288,7 +300,6 @@ button {
 
 .Items {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
@@ -303,11 +314,13 @@ button {
   margin: 10px;
   border-radius: 4px;
   width: 225px;
-  // min-height: 430px;
+  min-height: 230px;
   // background: #fff;
-  padding: 20px;
-
-  box-shadow: 0 2px 55px rgba(0, 0, 0, 0.1);
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  //
+  // box-shadow: 0 2px 55px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 1050px) {
     width: 48%;
@@ -343,6 +356,19 @@ button {
 .Image {
   width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
+}
+.mybuttonoverlap {
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  display: none;
+  left: 25px;
+  background-color: white;
+}
+.Image:hover .mybuttonoverlap {
+  display: block;
 }
 
 .new {

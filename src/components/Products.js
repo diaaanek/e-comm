@@ -9,12 +9,20 @@ export default class Products extends Component {
           href={`#${product.id}`}
           onClick={e => this.props.handleAddToCart(e, product)}
         >
-          <div className="ImageContainer">
+          <div className="Image">
             <img
-              className="ImageContainer"
-              src={`products/${product.id}-b.jpg`}
+              className="Image"
+              src={`products/${product.id}.jpg`}
               alt={product.title}
             />
+            <button
+              type="button"
+              onClick={e => this.props.handleAddToCart(e, product)}
+              class="mybuttonoverlap btn btn-info add-to-cart"
+            >
+              {" "}
+              Add to Cart{" "}
+            </button>
           </div>
         </a>
 
@@ -24,12 +32,14 @@ export default class Products extends Component {
           {util.formatCurrency(product.price)}.00 USD{" "}
         </div>
 
-        <button
+        {/*  <button
           className="cart add-btn"
           onClick={e => this.props.handleAddToCart(e, product)}
         >
           Add To Cart
         </button>
+
+        */}
       </div>
     ));
 

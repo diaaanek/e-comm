@@ -41,7 +41,11 @@ export default class Basket extends Component {
             </b>
 
             <button
-              className="add-btn"
+              style={{
+                marginLeft: "3.3em",
+                marginTop: "1em",
+                marginBottom: "1em"
+              }}
               onClick={() => alert("Todo: Implement checkout page.")}
             >
               checkout

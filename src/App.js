@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import { Helmet } from "react-helmet";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
@@ -125,14 +123,7 @@ class App extends Component {
     let appClass = `App theme-${this.state.theme}`;
     return (
       <div className={appClass}>
-        <Header />
-        <button className="theme-button" onClick={this.switchTheme}>
-          <img
-            src="https://www.emoji.co.uk/files/emoji-one/activity-emoji-one/1706-artist-palette.png"
-            style={{ height: "50px", width: "50px", float: "right" }}
-            alt="theme-swticher"
-          />
-        </button>
+        <Header switchTheme={this.switchTheme} />
 
         <div class="product_wrapper">
           <section class="clearfix">
@@ -142,6 +133,7 @@ class App extends Component {
             />
 
             <div class="product_container">
+              <h2>SHOP</h2>{" "}
               <Products
                 products={this.state.filteredProducts}
                 handleAddToCart={this.handleAddToCart}
@@ -149,8 +141,6 @@ class App extends Component {
             </div>
           </section>
         </div>
-
-        <div className="new" />
       </div>
     );
   }
