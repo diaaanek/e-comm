@@ -117,15 +117,14 @@ class App extends Component {
       <div className={appClass}>
         <Header switchTheme={this.switchTheme} />
 
-        <div class="product_wrapper">
+        <div class="product-wrapper">
           <section class="clearfix">
             <Basket
               cartItems={this.state.cartItems}
               handleRemoveFromCart={this.handleRemoveFromCart}
             />
 
-            <div class="product_container">
-              <h2>SHOP</h2>{" "}
+            <div class="product-container">
               <Products
                 products={this.state.filteredProducts}
                 handleAddToCart={this.handleAddToCart}

@@ -5,28 +5,28 @@ export default class Basket extends Component {
     const { cartItems } = this.props;
 
     return (
-      <div className="showfilter">
-        <h3 class="filterheader">Your Shopping Cart</h3>
+      <div className="show-basket">
+        <h3 class="basket-header">Your Shopping Cart</h3>
         {cartItems.length === 0 ? (
-          <h3 class="filterheader"> "Basket is empty" </h3>
+          <h3 class="basket-header"> "Basket is empty" </h3>
         ) : (
-          <div class="filterheader">
+          <div class="basket-header">
             You have {cartItems.length} items in the basket. <hr />
           </div>
         )}
         {cartItems.length > 0 && (
           <div className="cart-items">
-            <ul class="browser__list" style={{ marginLeft: 10 }}>
+            <ul class="cart-list" style={{ marginLeft: 10 }}>
               {cartItems.map(item => (
                 <li key={item.id}>
                   <b>{item.title}</b>
-                  <button
-                    style={{ float: "right" }}
+                  <div
+                    style={{ float: "right", cursor: "pointer" }}
                     className="remove-btn"
                     onClick={e => this.props.handleRemoveFromCart(e, item)}
                   >
                     X
-                  </button>
+                  </div>
                   <br />
                   {item.count} X {util.formatCurrency(item.price)}
                 </li>

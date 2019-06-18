@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 $themes: (
   light: (
     backgroundColor: white,
     fontFamily: "Avenir",
+    fontTwo: "Montserrat",
     textColor: black,
     headerColor: #3f3f49,
     buttonTextColor: #408bbd,
@@ -12,7 +15,8 @@ $themes: (
     buttonTextHoverColor: #61b0e7,
     buttonColor: gray,
     buttonBorder: 2px solid #fff,
-    logo: "http://cdn.shopify.com/s/files/1/1801/2825/t/18/assets/logo.png?10",
+    logo:
+      "https://res.cloudinary.com/dxrvvjvpf/image/upload/v1560824922/paint-brush-heart-png.png",
     headerImg:
       "https://d2qwzu24wcp0pu.cloudfront.net/purecollection/landing/SS18/sweater%20buying%20guide/9421503f.24342_Pure_Sweater_guide-v3_aimee_02.png/1176x440.fit.24342_Pure_Sweater_guide-v3_aimee_02.png",
     direction: left
@@ -21,6 +25,7 @@ $themes: (
     // backgroundColor: #252d2d,
       backgroundColor: #000000,
     fontFamily: "Roboto",
+    fontTwo: "Nunito Sans",
     textColor: black,
     headerColor: white,
     buttonTextColor: #aaa,
@@ -66,17 +71,57 @@ $themes: (
 .App {
   @include themify($themes) {
     // global styles
-    font-family: themed("fontFamily");
+    font-family: themed("fontFamily"), "Arial";
+    font-weight: 400;
     color: themed("textColor");
-
-    // component styles
-
     background-color: themed("backgroundColor");
 
-    .button {
-      color: themed("buttonColor");
-      background-color: themed("buttonBackgroundColor");
+    ul,
+    li {
+      list-style: none;
     }
+    img {
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: themed("fontTwo");
+      font-weight: 700;
+    }
+
+    .theme-button {
+      background-color: transparent;
+      border: none;
+      float: right;
+      height: 50px;
+      width: 50px;
+      float: right;
+      display: inline;
+      cursor: pointer;
+      margin-right: 25px;
+    }
+
+    button {
+      cursor: pointer;
+      height: 50px;
+      padding: 15px 35px 16px;
+      /* border-radius: 2px; */
+      font-family: themed("fontFamily"), sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      text-transform: uppercase;
+      background-color: #f7323f;
+      border: solid 2px #464e54;
+      color: #464e54;
+      background: none;
+      button:hover {
+        background-color: themed("button1");
+      }
+    }
+
+    // Header Styles
     div.logo {
       content: url(themed("logo"));
       height: 50px;
@@ -85,18 +130,18 @@ $themes: (
       left: 27px;
     }
 
-    .hero_wrapper {
+    .hero-wrapper {
       background-image: url(themed("headerImg"));
       background-size: cover;
       padding: 0;
       margin: 0;
       overflow: hidden;
     }
-    .hero_image_container {
+    .hero-image-container {
       margin: 97px 0;
     }
 
-    .hero__details {
+    .hero-details {
       float: left;
       width: 45%;
       margin-left: 60px;
@@ -105,16 +150,16 @@ $themes: (
       color: themed("headerColor");
     }
 
-    .hero_button_container {
+    .hero-button {
       margin: 10px 0;
     }
 
-    .hero_button_container button:first-of-type {
+    .hero-button button:first-of-type {
       // margin-left: 25px;
       margin-right: 10px;
 
       font-size: 1em;
-      font-family: themed("fontFamily");
+
       background: themed("button1");
       padding: 10px 10px;
       width: 40%;
@@ -123,8 +168,8 @@ $themes: (
       border: none;
     }
 
-    .hero_button_container button:last-of-type {
-      font-family: themed("fontFamily");
+    .hero-button button:last-of-type {
+      font-family: themed("fontTwo");
       font-size: 1em;
       background: themed("button2");
       padding: 10px 10px;
@@ -134,14 +179,13 @@ $themes: (
       border: none;
     }
 
-    .showfilter {
+    // Basket Styles
+    .show-basket {
       width: 20%;
       /* box-shadow: 0 0 17px 5px rgba(39, 43, 55, 0.15); */
       box-shadow: 0 2px 55px rgba(0, 0, 0, 0.1);
       background: white;
       float: themed("direction");
-
-      // margin-left: 23px;
     }
 
     .remove-btn {
@@ -149,224 +193,153 @@ $themes: (
       background: themed("button1");
       color: white;
       font-size: 1em;
-      padding: 9px;
+      padding: 4px 8px 4px 8px;
       border: none;
     }
+
+    .add-btn {
+      margin-top: 10px;
+      width: 100%;
+      height: 36px;
+      border-radius: 2px;
+      text-align: center;
+      color: #fff;
+      background: #077915;
+      border: 0;
+      font-weight: 400;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+
+      &:hover {
+        background-color: themed("button1");
+      }
+    }
+
+    .clearfix:after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+
+    .product-wrapper {
+      width: 95%;
+      margin: 20px auto;
+    }
+
+    .basket-header {
+      text-align: left;
+      padding: 9px;
+      margin: 3px 14px;
+    }
+
+    .cart-list {
+      list-style: none;
+      margin: 0;
+      font-size: 14px;
+      padding: 0 9px;
+    }
+
+    .cart-list li.active {
+      color: #e62d35;
+    }
+
+    .cart-list li {
+      padding: 16px;
+    }
+
+    .product-container {
+      width: 75%;
+      float: left;
+      margin-left: 2%;
+    }
+
+    @media screen and (max-width: 812px) {
+      .hero-details {
+        width: 65%;
+        float: none;
+      }
+      .showlist_container {
+        width: 68%;
+      }
+    }
+
+    @media screen and (max-width: 615px) {
+      .show-basket {
+        display: none;
+      }
+
+      .showlist_container {
+        width: 99%;
+      }
+    }
+
+    .Items {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      // background-color: rgb(247, 247, 247);
+    }
+
+    .Item {
+      margin: 10px;
+      border-radius: 4px;
+      width: 225px;
+      min-height: 230px;
+      // background: #fff;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      //
+      // box-shadow: 0 2px 55px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 1050px) {
+        width: 48%;
+      }
+      @media (max-width: 600px) {
+        width: 100%;
+
+        margin-bottom: 10px;
+      }
+    }
+
+    .Item__title {
+      text-align: center;
+      font-size: 1em;
+      font-weight: 700;
+      color: themed("headerColor");
+      width: 90%;
+      margin: 20px auto 0;
+      text-transform: uppercase;
+    }
+
+    .Item__price {
+      text-align: center;
+      color: themed("headerColor");
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    .Image {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+    .mybuttonoverlap {
+      position: absolute;
+      z-index: 2;
+      top: 150px;
+      display: none;
+      left: 25px;
+      background-color: white;
+    }
+    .Image:hover .mybuttonoverlap {
+      display: block;
+    }
   }
-}
-.theme-button {
-  background-color: transparent;
-  border: none;
-  float: right;
-}
-
-ul,
-li {
-  list-style: none;
-}
-img {
-  max-width: 100%;
-}
-
-button {
-  cursor: pointer;
-  height: 50px;
-  padding: 15px 35px 16px;
-  /* border-radius: 2px; */
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: uppercase;
-  background-color: #f7323f;
-  border: solid 2px #464e54;
-  color: #464e54;
-  background: none;
-}
-
-.add-btn {
-  margin-top: 10px;
-  width: 100%;
-  height: 36px;
-  border-radius: 2px;
-  text-align: center;
-  color: #fff;
-  background: #077915;
-  border: 0;
-  font-weight: 400;
-  padding: 0 16px;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #000;
-  }
-}
-
-.clearfix:after {
-  display: table;
-  content: "";
-  clear: both;
-}
-
-.product_wrapper {
-  width: 95%;
-  margin: 20px auto;
-}
-
-.filterheader {
-  text-align: left;
-  padding: 9px;
-  margin: 3px 14px;
-}
-
-.browser__list {
-  list-style: none;
-  margin: 0;
-  font-size: 14px;
-  padding: 0 9px;
-}
-
-.browser__list li.active {
-  color: #e62d35;
-}
-
-.browser__list li {
-  padding: 16px;
-}
-.showlist_search {
-  text-align: center;
-  margin: 4px;
-}
-
-.showlist__item {
-  width: 25%;
-  box-shadow: 0 0 17px 5px rgba(39, 43, 55, 0.15);
-  float: right;
-  margin-left: 3%;
-  margin-bottom: 1em;
-  height: 45%;
-}
-
-.showlist_search input {
-  display: block;
-  width: 92%;
-  padding: 9px 5px;
-  border: 1px solid #ddd;
-  outline: none;
-  box-shadow: 0 0 30px rgba(39, 43, 55, 0.15);
-  border-radius: 3px;
-  font-size: 14px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.product_container {
-  width: 75%;
-  float: left;
-  margin-left: 2%;
-}
-
-.showlist_item_detail h3 {
-  font-size: 16px;
-}
-
-.showlist_item_detail {
-  background: white;
-  padding: 9px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #111;
-}
-
-@media screen and (max-width: 812px) {
-  .hero__details {
-    width: 83%;
-    float: none;
-  }
-  .showlist_container {
-    width: 68%;
-  }
-}
-
-@media screen and (max-width: 615px) {
-  .showfilter {
-    display: none;
-  }
-  .showlist_container {
-    width: 99%;
-  }
-}
-
-.Items {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  // background-color: rgb(247, 247, 247);
-}
-
-.Item {
-  // background-color: white;
-
-  margin: 10px;
-  border-radius: 4px;
-  width: 225px;
-  min-height: 230px;
-  // background: #fff;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  //
-  // box-shadow: 0 2px 55px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 1050px) {
-    width: 48%;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-
-    margin-bottom: 10px;
-  }
-}
-
-.Item__title {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 700;
-  color: #555;
-  width: 90%;
-  margin: 20px auto 0;
-}
-
-.Item__price {
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 10px;
-  color: #777;
-}
-
-.ImageContainer {
-  width: 100%;
-  height: auto;
-}
-
-.Image {
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-}
-.mybuttonoverlap {
-  position: absolute;
-  z-index: 2;
-  top: 150px;
-  display: none;
-  left: 25px;
-  background-color: white;
-}
-.Image:hover .mybuttonoverlap {
-  display: block;
 }
